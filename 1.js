@@ -14,7 +14,6 @@ nums.pop();
 nums.pop();
 console.log(nums);
 // 기존 배열에서 수정(제거)만 일어난다.
-*/
 
 // 2번 문제
 // 데이터
@@ -34,3 +33,10 @@ arr.splice(2, 0, 10000);
 // splice(start, deleteCount, item) 순서대로 변경을 시작할 인덱스, 삭제할 요소의 수, 추가할 요소
 // 배열의 요소를 삭제하거나 새 요소를 추가하여 배열의 내용을 변경함
 console.log(arr);
+
+// 3번 문제
+// 다음의 출력 값으로 옳은 것은?
+var arr = [100, 200, 300];
+console.log(typeof arr);
+// 출력: object
+*/
