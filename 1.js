@@ -39,4 +39,26 @@ console.log(arr);
 var arr = [100, 200, 300];
 console.log(typeof arr);
 // 출력: object
+
+// 4번 문제
+// 다음 변수 a를 `typeof(a)`로 넣었을 때 출력될 값과의 연결이 알맞지 않은 것은?
+
+// 1)  입력 : a =1,   출력 : number
+// 2)  입력 : a = 2.22,   출력 : boolean
+// 3)  입력 : a = 'p',   출력 : string
+// 4)  입력 : a = [1, 2, 3],   출력 : object
+
+// 정답: 2, boolean -> number
+
+// 5번 문제
+var a = 10;
+var b = 2;
+
+for (var i = 1; i < 5; i += 2) {
+  a += i;
+}
+
+console.log(a + b);
+//정답: 16
+
 */
