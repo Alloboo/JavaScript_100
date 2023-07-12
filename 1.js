@@ -88,3 +88,111 @@ console.log(a + b);
 // 이미 존재하는 예약어인 let은 변수명으로 사용될 수 없음. 숫자는 변수명의 첫 글자가 될 수 없으며 식별자는 문자, 밑줄 혹은 $로 시작해야 함.
 
 */
+
+// 8번 문제
+// var d = {
+//   height: 180,
+//   weight: 78,
+//   weight: 84,
+//   temperature: 36,
+//   eyesight: 1,
+// };
+
+// console.log(d["weight"]);
+// 출력값: 84, 객체의 키 값이 중복될 경우 마지막 키의 값을 가져옴.
+// [](각괄호)로 객체 키에 접근할 때는 따옴표를 붙여주어야 함
+
+// 9번 문제: concat을 활용한 출력 방법
+// var year = "2019";
+// var month = "04";
+// var day = "26";
+// var hour = "11";
+// var minute = "34";
+// var second = "27";
+
+// var result = year.concat(
+//   "/",
+//   month,
+//   "/",
+//   day,
+//   " ",
+//   hour,
+//   ":",
+//   minute,
+//   ":",
+//   second
+// );
+
+// console.log(result);
+
+//출력: 2019/04/26 11:34:27
+
+// 10번 문제: 별 찍기
+// 입력: 5
+
+/*
+출력
+    *
+   ***
+  *****
+ *******
+*********
+*/
+
+/* 풀이
+function getTree(n) {
+  let tree = "";
+
+  for (let i = 1; i <= n; i++) {
+    tree += " ".repeat(n - i) + "*".repeat(i + (i - 1)) + "\n";
+  }
+
+  return tree;
+}
+
+console.log(getTree(5));
+*/
+
+// 11번 문제: 1부터 100까지 모두 더하는 Code를 <pass> 부분에 완성하세요. for를 사용해야 합니다.
+
+/*
+let s = 0;
+
+//pass
+for (let i = 1; i <= 100; i++) {
+  s += i;
+}
+
+console.log(s);
+*/
+
+// 12번 문제
+/*
+다음 소스코드에서 클래스를 작성하여 게임 캐릭터의 능력치와 '파이어볼'이 출력되게 만드시오.
+주어진 소스 코드를 수정해선 안됩니다.
+*/
+
+//데이터
+//<여기에 class를 작성하세요.>
+
+/*
+class Wizard {
+  constructor(health, mana, armor) {
+    this.health = health;
+    this.mana = mana;
+    this.armor = armor;
+  }
+
+  attack() {
+    console.log("파이어볼");
+  }
+}
+
+const x = new Wizard(545, 210, 10);
+console.log(x.health, x.mana, x.armor);
+x.attack();
+*/
+
+//출력
+//545 210 10
+//파이어볼
