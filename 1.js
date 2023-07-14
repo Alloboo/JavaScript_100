@@ -235,3 +235,38 @@ const name = "김다정";
 
 console.log(`안녕하세요. 저는 ${name}입니다.`);
 */
+
+// 16번 문제: 문장을 입력하면 거꾸로 출력하기
+
+/* 풀이
+const reverse = (str) => {
+  const sentence = str.split("");
+  const length = sentence.length;
+  let reverseStr = [];
+
+  for (let i = length - 1; i >= 0; i--) {
+    reverseStr.push(str[i]);
+  }
+
+  console.log(reverseStr.join(""));
+};
+
+reverse("로꾸거");
+*/
+
+/* 정답 코드
+const reverseString = n.split('').reverse().join('');
+*/
+
+// 17번 문제
+// 키가 주어지면 키가 150이 넘으면 YES를 틀리면 NO를 출력하는 프로그램을 작성하세요.
+
+/* 풀이
+function checkHeight(h) {
+  if (h > 150) {
+    console.log("YES");
+  } else console.log("NO");
+}
+
+checkHeight(140);
+*/
