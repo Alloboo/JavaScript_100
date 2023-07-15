@@ -270,3 +270,54 @@ function checkHeight(h) {
 
 checkHeight(140);
 */
+
+// 18번 문제
+// 공백으로 구분하여 세 과목의 점수가 주어지면 전체 평균 점수를 구하는 프로그램을 작성하세요. 단, 소숫점 자리는 모두 버립니다.
+// 입력 : 20 30 40
+// 출력 : 30
+
+/*
+function average(score) {
+  const scoreArr = score.split(" ");
+  let sum = 0;
+
+  for (let i = 0; i < scoreArr.length; i++) {
+    add += Number(scoreArr[i]);
+  }
+
+  const result = Math.floor(sum / 3);
+  console.log(result);
+}
+
+average("20 30 40");
+*/
+
+// 19번 문제
+// 공백으로 구분하여 두 숫자 a와 b가 주어지면, a의 b승을 구하는 프로그램을 작성하세요.
+
+/*
+function pow(str) {
+  const arr = str.split(" ");
+  const result = arr[0] ** arr[1];
+  console.log(result);
+}
+
+pow("2 3");
+*/
+
+// 20번 문제
+// 공백으로 구분하여 두 숫자가 주어집니다.
+// 두번째 숫자로 첫번째 숫자를 나누었을 때 그 몫과 나머지를 공백으로 구분하여 출력하세요.
+
+/*
+function paintNumber(str) {
+  const arr = str.split(" ");
+  const quota = arr[0] / arr[1];
+  const remainder = arr[0] % arr[1];
+  const answer = `${quota} ${remainder}`;
+
+  console.log(answer);
+}
+
+paintNumber("10 2");
+*/
