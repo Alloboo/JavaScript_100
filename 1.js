@@ -349,3 +349,28 @@ paintNumber("10 2");
 */
 
 // 정답: 2번
+
+// 23번 문제: `console.log(10/3)`의 출력 결과는 **3**이다. (O/X)
+// 정답: X, 3.3333333333333335
+
+// 24번 문제
+// 입력 : mary
+// 출력 : MARY
+/*
+function intoUpperCase(str) {
+  const changedStr = str.toUpperCase(str);
+  console.log(changedStr);
+}
+
+intoUpperCase("mary");
+*/
+
+// 25번 문제: 입력으로 반지름의 길이 정수 n이 주어지면 원의 넓이를 반환하는 함수를 만들어 주세요.
+/*
+function areaOfCircle(n) {
+  const area = n * n * Math.PI;
+  console.log(area);
+}
+
+areaOfCircle(10);
+*/
