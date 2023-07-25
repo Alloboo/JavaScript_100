@@ -374,3 +374,41 @@ function areaOfCircle(n) {
 
 areaOfCircle(10);
 */
+
+// 26번 문제: 행성의 한글 이름을 입력하면 영어 이름을 반환하는 프로그램을 만들어 주세요.
+/*
+  const planets = {
+    수성: "Mercury",
+    금성: "Venus",
+    지구: "Earth",
+    화성: "Mars",
+    목성: "Jupiter",
+    토성: "Saturn",
+    천왕성: "Uranus",
+    해왕성: "Neptune",
+  };
+
+  console.log(planets[name]);
+*/
+
+// 27번 문제
+/*
+입력
+Yujin Hyewon
+70 100
+
+출력
+{'Yujin': 70, 'Hyewon': 100}
+*/
+
+/*
+const keys = "Shownu Hyungwon".split(" ");
+const values = "70 100".split(" ");
+const obj = {};
+
+for (let i = 0; i < keys.length; i++) {
+  obj[keys[i]] = parseInt(values[i]);
+}
+
+console.log(obj);
+*/
