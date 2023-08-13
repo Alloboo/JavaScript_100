@@ -412,3 +412,152 @@ for (let i = 0; i < keys.length; i++) {
 
 console.log(obj);
 */
+
+// 28번 문제: 문자열이 주어지면 2-gram으로 출력하는 프로그램을 작성해 주세요.
+/*
+function twoGram(str) {
+  for (let i = 0; i < str.length - 1; i++) {
+    // <1>
+    //console.log(str.slice(i, i + 2));
+    
+    // <2>
+    //console.log(str[i], str[i + 1]);
+  }
+}
+twoGram("javascript");
+*/
+
+// 29번 문제: 주어진 알파벳이 대문자이면 YES를 아니면 NO를 출력하는 프로그램을 만들어 주세요.
+/*
+const isUpper = (strValue) => {
+  if (strValue.charCodeAt(0) >= 65 && strValue.charCodeAt(0) <= 90) {
+    console.log("YES");
+  } else console.log("NO");
+
+  /* 가능한 조건식
+  1. 대문자로 변환하여 기존의 문자열과의 일치 여부 따지기
+  strValue.toUpperCase() === strValue
+  2. match() 메서드와 정규식 사용하기: match() 메서드는 정규 표현식과 일치하는 문자열이 존재하면 배열을 반환하고 그렇지 않으면 null을 반환한다.
+  strValue.match(new RegExp(/^[A-Z]/)) !== null
+  3. 아스키코드 범위 활용하기
+  문자열을 UTF-16 방식으로 인코딩하여 아스키코드 범위에 속하는지 확인한다.
+  charCodeAt(index): 주어진 인덱스의 문자열을 UTF-16 코드를 나타내는 0~65535 사이의 정수로 변환한다.
+  영어 대문자의 범위: A(65)부터 Z(90) / 소문자의 범위: a(97)부터 z(122)
+  strValue.charCodeAt(0) >= 65 && strValue.charCodeAt(0) <= 90
+};
+isUpper("k");
+*/
+
+// 30번 문제
+// 첫번째 입력에서는 문자열이 입력되고, 두번째에는 찾을 문자가 입력되어야 합니다.
+// 그 문자가 시작하는 index를 반환하는 프로그램을 만들어 주세요
+/*
+const findIndexOfWord = (strValue, word) => {
+  for (let i = 0; i < strValue.length; i++) {
+    if (strValue.slice(i, word.length + i) === word) {
+      console.log("index:", i);
+    }
+  }
+};
+findIndexOfWord("pineapple is yummy", "apple");
+*/
+// 나는 위와 같이 풀었으나 한 번에 해결할 수 있는 메서드가 있었다... 그것은 바로 indexOf()...
+// 호출한 스트링 객체 또는 배열에서 주어진 값과 일치하는 값 혹은 요소의 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환한다.
+// strValue.indexOf(word);
+
+// 31번 문제
+/*
+다음 배열 내장함수의 시간 복잡도가 O(1)이 아닌 것을 모두 고르시오.
+
+1)  arr[i]
+-> 배열의 특정 인덱스에 저장된 값을 반환. 배열 내에서 해당 인덱스로 바로 접근하기 때문에 빠르게 접근 가능
+2)  arr.push(5)
+-> 배열의 끝에 새로운 요소를 추가. 배열의 크기가 커질 때마다 기존 요소들을 복사하여 새로운 공간에 저장해야 하므로 평균적으로 O(1) 시간 복잡도를 갖지만,
+-> 배열의 크기에 따라 최악의 경우에는 O(n)의 시간 복잡도를 가질 수 있음. (n=배열의 길이)
+3)  arr.slice() *
+-> 배열의 일부분을 복사하여 새로운 배열을 생성. 복사해야 할 요소의 개수에 비례해서 시간이 걸리므로 O(k) 시간 복잡도를 가짐(k=복사할 요소의 개수)
+4)  arr.pop()
+-> 배열의 마지막 요소를 제거하고 반환. 배열의 크기에 따라 제거할 요소를 찾기 위해 인덱스를 찾는 과정이 필요하므로 O(1) 시간 복잡도를 갖지만,
+-> 최악의 경우에는 O(n)의 시간 복잡도를 가질 수 있음
+5)  arr.includes(5) *
+-> 배열에 특정 요소가 있는지 여부 확인. 배열 전체를 순회하여 찾는 과정이 필요하므로 O(5) 시간 복잡도를 가짐.
+
+시간복잡도란 알고리즘을 처리하는 데 얼마나 걸리는지를 설명하는 것으로 Big-O 표기법을 사용.
+Big-O란, 알고리즘의 성능을 수학적으로 표현해주는 표기법
+빅오 표기법은 알고리즘을 처리하는 실제 시간을 표시하는 것이 아님. 빅오 표기법은 데이터나 사용자의 증가율에 따른 알고리즘의 성능을 예측하기 위해 사용
+O(1): Constant Time, 입력 데이터의 크기에 상관없이 일정한 시간이 걸리는 알고리즘
+O(n): Linear Time, 입력 데이터의 크기에 따라 처리시간이 늘어나는 알고리즘
+O(n^2): Quadratic Time, 입력 데이터 크기의 제곱 만큼 처리시간이 늘어나는 알고리즘
+O(2^n): 피보나치 수열을 표현할 때
+O(log n): 이진 탐색 등의 알고리즘을 표현할 때
+Drop Constants
+*/
+
+// 32번 문제: 문자열을 입력받으면 단어의 갯수를 출력하는 프로그램을 작성해 주세요
+/*
+const countWords = (strValue) => {
+  console.log(strValue.split(" ").length);
+};
+countWords("안녕하세요. 몬스타엑스의 유기현입니다.");
+*/
+
+// 33번 문제: 주어진 숫자를 역순으로 출력하는 프로그램을 작성하시오.
+/*
+const printReverse = (strValue) => {
+  const arr = strValue.split("");
+  let reverse = "";
+
+  for (let i = strValue.length - 1; i >= 0; i--) {
+    reverse += arr[i];
+  }
+  console.log(reverse);
+};
+printReverse("12345");
+*/
+
+// 34번 문제: 공백으로 구분되어 주어지는 숫자가 순서대로 정렬되어있는지 확인하는 프로그램을 작성해보자.
+// 이슈: 계속해서 풀던 중, 분명 제대로 정렬된 것이 아닌데 정렬된 것으로 결과 값이 나왔음
+// 원인: sort() 메서드는 정렬 후 새로운 배열을 반환하는 것이 아닌 기존의 배열을 변경하는 메서드이기 때문이었음
+// 해결방법: 스프레드 구문을 사용하여 얕은 복사를 한다!
+
+/*
+const sortNumber = (strValue) => {
+  const numbers = strValue.split(" ").map((str) => Number(str));
+  const sorted = [...numbers].sort((a, b) => a - b);
+
+  let result = numbers.length;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (sorted[i] === numbers[i]) {
+      result -= 1;
+    } else result += 1;
+  }
+
+  if (result == 0) {
+    console.log("YES");
+  } else console.log("NO");
+
+  /* 근데! 좀 더 효율적인 코드는 해설에 주어진 코드였음.
+  왜냐면 입력 문자열을 직접 sort() 메서드를 사용해서 정렬하고, 정렬된 문자열을 원본 문자열과 비교하기 때문에
+  메모리를 더 효율적으로 사용하여 더 적은 연산 비용이 든다.
+  
+  let sorted = "";
+
+  sorted = strValue
+  .split(" ")
+  .sort(function(a, b) {
+    return a - b;
+  })
+  .join(" ");
+
+  if (strValue === sorted) {
+  console.log("Yes");
+  } else {
+  console.log("No");
+  }
+  
+};
+sortNumber("12 23 45 56 667");
+*/
+
+// 35번 문제
