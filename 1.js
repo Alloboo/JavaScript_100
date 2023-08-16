@@ -561,3 +561,61 @@ sortNumber("12 23 45 56 667");
 */
 
 // 35번 문제
+// 2제곱, 3제곱, 4제곱을 할 수 있는 Factory 함수를 만들려고 합니다.
+// <pass>에 코드를 작성하여 two함수를 완성하세요.
+
+/*
+function one(n) {
+  function two(value) {
+    const sq = Math.pow(value, n);
+    return sq;
+  }
+  return two;
+}
+
+const a = one(2);
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
+*/
+
+// 36번 문제: 구구단 출력하기
+/*
+function gugudan(num) {
+  let result = "";
+  for (let i = 1; i <= 9; i++) {
+    result += num * i + " ";
+  }
+  console.log(result.trim());
+}
+gugudan(2);
+*/
+
+// 37번 문제: 학생들이 뽑은 후보들을 입력받으면 뽑힌 학생의 이름과 받은 표 수를 출력하는 프로그램
+const vote = "기현 기현 기현 민혁 민혁 현우 현우 현우 현우 주헌 주헌 주헌";
+
+function voteResult(str) {
+  const arr = str.split(" ");
+  let result = {};
+  let winner = "";
+
+  for (let i in arr) {
+    let val = arr[i];
+
+    result[val] =
+      result[val] === undefined ? 1 : (result[val] = result[val] + 1);
+    // 배열의 요소가 result에 undefined로 초기화되어 있으면 1, 이미 값이 있으면 +1
+  }
+
+  winner = Object.keys(result).reduce((a, b) => {
+    // Object.keys(result): result 객체의 키를 포함하는 배열을 반환
+    return result[a] > result[b] ? a : b;
+    // 배열에서 두 개를 비교해서 큰 값을 리턴
+  });
+
+  console.log(`${winner}가 총 ${result[winner]}표로 반장이 되었습니다.`);
+}
+voteResult(vote);
