@@ -595,6 +595,7 @@ gugudan(2);
 */
 
 // 37번 문제: 학생들이 뽑은 후보들을 입력받으면 뽑힌 학생의 이름과 받은 표 수를 출력하는 프로그램
+/*
 const vote = "기현 기현 기현 민혁 민혁 현우 현우 현우 현우 주헌 주헌 주헌";
 
 function voteResult(str) {
@@ -619,3 +620,33 @@ function voteResult(str) {
   console.log(`${winner}가 총 ${result[winner]}표로 반장이 되었습니다.`);
 }
 voteResult(vote);
+*/
+
+
+// 38번 문제: 호준이의 아르바이트
+
+
+const giveReward = (input) => {
+  const calculrateTargets = (scores, arrScore) =>{
+    let targets = 0;
+    
+    for ( let a of arrScore ) {
+      if ( scores[2] <= a && a <= scores[0] ) {
+        targets += 1;
+      }
+    }
+    
+    return targets;
+  }
+  const arrScore = input.split(' ');
+  const uniqueScores = [...new Set(arrScore)]; // Set: 중복된 값을 허용하지 않는 컬렉션 객체
+  const sortedScores = uniqueScores.sort((a, b) => b - a);
+  const targets = calculrateTargets(sortedScores, arrScore);
+  
+  console.log(targets);
+  return targets;
+}
+
+input = '97 86 75 66 55 97 85 97 97 95';
+giveReward(input);
+
