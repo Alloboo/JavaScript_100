@@ -624,7 +624,7 @@ voteResult(vote);
 
 
 // 38번 문제: 호준이의 아르바이트
-
+/*
 const giveReward = (input) => {
   const calculrateTargets = (scores, arrScore) =>{
     let targets = 0;
@@ -648,4 +648,45 @@ const giveReward = (input) => {
 
 input = '97 86 75 66 55 97 85 97 97 95';
 giveReward(input);
+*/
 
+
+// 39번 문제: 오타 수정하기(글자바꾸기)
+/*
+const replaceWord = (input) => {
+  // replaceAll(searchStr, replaceStr)
+  console.log(input.replaceAll('q', 'e'));
+  return input.replaceAll('q', 'e');
+}
+input = 'hqllo my namq is hyqson'
+replaceWord(input);
+*/
+/*
+const word = 'hqllo my namq is hyqson';
+//1. 함수 사용
+function replaceAll(str, searchStr, replaceStr) {
+   return str.split(searchStr).join(replaceStr);
+}
+console.log(replaceAll(word,"q","e"));
+
+//2. 정규식 사용
+console.log(word.replace(/q/gi, 'e'));
+*/
+
+
+// 40번 문제
+/*
+let total = 0;
+let count = 0;
+const limit = 50;
+const n = 2;
+
+for (let i=1; i<=n; i++){
+  total += parseInt(prompt('무게를 입력해주세요.'), 10);
+  if (total <= limit){
+		count = i;
+  }
+}
+
+console.log(count);
+*/
