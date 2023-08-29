@@ -625,7 +625,6 @@ voteResult(vote);
 
 // 38번 문제: 호준이의 아르바이트
 
-
 const giveReward = (input) => {
   const calculrateTargets = (scores, arrScore) =>{
     let targets = 0;
@@ -638,7 +637,7 @@ const giveReward = (input) => {
     
     return targets;
   }
-  const arrScore = input.split(' ');
+  const arrScore = input.split(' ').map((a) => parseInt(a, 10));
   const uniqueScores = [...new Set(arrScore)]; // Set: 중복된 값을 허용하지 않는 컬렉션 객체
   const sortedScores = uniqueScores.sort((a, b) => b - a);
   const targets = calculrateTargets(sortedScores, arrScore);
