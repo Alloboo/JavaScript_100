@@ -690,3 +690,39 @@ for (let i=1; i<=n; i++){
 
 console.log(count);
 */
+
+
+
+// 41번 문제: 소수판별
+/*
+const value = 2
+
+const isPrime = (value) => {
+  const num = Number(value);
+
+  if (num <= 1) {
+    console.log('NO');
+    return false;
+  }
+  if (num === 2) {
+    console.log('YES');
+    return true;
+  }
+
+  // 효율적인 소수 판별을 위해 주어진 수의 제곱근까지의 모든 수로 나누기
+  // 소수가 아니라면 어떤 인수는 반드시 주어진 수의 제곱근보다 작거나 같음
+  // 제곱근보다 큰 숫자로 나누어도 이미 작은 수로 나누었을 때의 결과가 반복됨
+  // 시간복잡도를 줄일 수 있음
+  for ( let i=2; i<=Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      console.log('NO');      
+      return false;
+    }    
+  }
+
+  console.log('YES');
+  return true;
+}
+isPrime(value);
+*/
+
