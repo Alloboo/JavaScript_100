@@ -726,3 +726,25 @@ const isPrime = (value) => {
 isPrime(value);
 */
 
+
+// 42번 문제: 2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨 요일일까요?
+
+const month = 5;
+const date = 24;
+
+const getDayOfWeek = (month, date) => {
+  const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+  if ( month === 0 || month > 13 || date === 0 || date > 31 ) {
+    console.log('날짜를 올바르게 입력해주세요.')
+    return false;
+  }
+
+  // Date 객체에서 월은 0부터 시작하므로 a-1
+  // getDay: 요일을 0~6까지의 정수로 반환
+  const dayOfWeek = new Date(2020, month - 1, date).getDay();
+
+  console.log(days[dayOfWeek]);
+  return days[dayOfWeek];
+}
+getDayOfWeek(month, date);
