@@ -622,7 +622,6 @@ function voteResult(str) {
 voteResult(vote);
 */
 
-
 // 38번 문제: 호준이의 아르바이트
 /*
 const giveReward = (input) => {
@@ -650,7 +649,6 @@ input = '97 86 75 66 55 97 85 97 97 95';
 giveReward(input);
 */
 
-
 // 39번 문제: 오타 수정하기(글자바꾸기)
 /*
 const replaceWord = (input) => {
@@ -673,7 +671,6 @@ console.log(replaceAll(word,"q","e"));
 console.log(word.replace(/q/gi, 'e'));
 */
 
-
 // 40번 문제
 /*
 let total = 0;
@@ -690,8 +687,6 @@ for (let i=1; i<=n; i++){
 
 console.log(count);
 */
-
-
 
 // 41번 문제: 소수판별
 /*
@@ -726,9 +721,8 @@ const isPrime = (value) => {
 isPrime(value);
 */
 
-
 // 42번 문제: 2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨 요일일까요?
-
+/*
 const month = 5;
 const date = 24;
 
@@ -748,3 +742,16 @@ const getDayOfWeek = (month, date) => {
   return days[dayOfWeek];
 }
 getDayOfWeek(month, date);
+*/
+
+// 43번 문제
+/*
+우리가 흔히 사용하는 숫자 1, 8, 19, 28893 등등...은 10진수 체계입니다.
+이를 컴퓨터가 알아 들을 수 있는 2진수로 바꾸려고 합니다. 어떻게 해야할까요?
+*/
+// 10진수 -> 다른 진수: toString()
+// 다른 진수 -> 10진수: parseInt()
+// 2진수 -> 8진수: 2진수 -> 10진수 -> 8진수
+
+const num = Number(prompt("숫자를 입력해주세요."));
+console.log(num.toString(2));
