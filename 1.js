@@ -752,6 +752,42 @@ getDayOfWeek(month, date);
 // 10진수 -> 다른 진수: toString()
 // 다른 진수 -> 10진수: parseInt()
 // 2진수 -> 8진수: 2진수 -> 10진수 -> 8진수
-
+/*
 const num = Number(prompt("숫자를 입력해주세요."));
 console.log(num.toString(2));
+*/
+
+// 44번 문제
+//사용자가 입력한 양의 정수의 각 자리수의 합을 구하는 프로그램을 만들어주세요
+
+//const num = prompt("숫자를 입력해주세요."));
+/* 1번 풀이
+function sum(n) {
+  let result = 0;
+
+  for (let i = 0; i < n.length; i++) {
+    result += Number(n[i]);
+  }
+  console.log(result);
+}
+sum("1234");
+*/
+/*2번 풀이(가 더 빠름)
+let num = 1234;
+let sum = 0;
+
+while (num !== 0) {
+  sum += num % 10;
+  num = Math.floor(num / 10);
+}
+
+console.log(sum);
+*/
+
+// 45번 문제
+// Date객체의 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 이후로부터 지금까지 흐른 시간을 천분의 1초 단위(ms)로 반환합니다.
+// 이를 이용하여 현재 연도를 출력해보세요.
+const d = new Date();
+let year = d.getTime();
+year = Math.floor(year / (3600 * 24 * 365 * 1000)) + 1970; //밀리초를 연도단위로 변환하기: 3600초, 24일, 365일, 1000밀리초
+console.log(year);
