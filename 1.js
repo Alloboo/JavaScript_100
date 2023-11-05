@@ -820,7 +820,7 @@ console.log(sum);
 중복된 데이터들을 삭제하여 실제 접수 명단이 몇 명인지 알고 싶습니다.
 아래 주어진 데이터들로부터 중복을 제거하여 실제 접수 인원을 출력해 주세요.
 */
-
+/*
 const people = {
   이호준: "01050442903",
   이호상: "01051442904",
@@ -837,3 +837,18 @@ for (let key in people) {
 }
 
 console.log(result.size);
+*/
+
+// 48번 문제 : 대소문자 바꿔서 출력하기
+const str = "AAAAbbbbCCCCdddd";
+let result = [];
+
+for (let i = 0; i < str.length; i++) {
+  if (str[i] === str[i].toUpperCase()) {
+    result.push(str[i].toLowerCase());
+  } else {
+    result.push(str[i].toUpperCase());
+  }
+}
+
+console.log(result.join(""));
