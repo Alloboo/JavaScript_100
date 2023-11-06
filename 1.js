@@ -840,6 +840,7 @@ console.log(result.size);
 */
 
 // 48번 문제 : 대소문자 바꿔서 출력하기
+/*
 const str = "AAAAbbbbCCCCdddd";
 let result = [];
 
@@ -852,3 +853,17 @@ for (let i = 0; i < str.length; i++) {
 }
 
 console.log(result.join(""));
+*/
+
+// 49번 문제
+// 순서가 없는 10개의 숫자가 공백으로 구분되어 주어진다. 주어진 숫자들 중 최댓값을 반환하라.
+
+const nums = "10 9 7 5 6 4 3 2 1";
+const nArr = nums.split(" ").map((n) => {
+  return parseInt(n, 10);
+});
+
+const arrSorted = nArr.sort((a, b) => {
+  return b - a;
+});
+console.log(arrSorted[0]);
