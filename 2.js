@@ -39,10 +39,10 @@ const array = prompt("배열을 입력하세요")
 console.log(mergeSort(array));
 */
 
-
 // 52번 문제: quick 정렬
-function quickSort(arr){
-  if (arr.length <= 1){
+/*
+function quickSort(arr) {
+  if (arr.length <= 1) {
     return arr;
   }
 
@@ -50,16 +50,19 @@ function quickSort(arr){
   const left = [];
   const right = [];
 
-  for (let i=1; i<arr.length; i++){
-    if(/*빈칸을 채워주세요*/){
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
       left.push(arr[i]);
     } else {
       right.push(arr[i]);
     }
   }
-  return /*빈칸을 채워주세요*/
+  return quickSort(left).concat(pivot, quickSort(right));
 }
 
-const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
+const array = prompt("배열을 입력하세요")
+  .split(" ")
+  .map((n) => parseInt(n, 10));
 
 console.log(quickSort(array));
+*/
