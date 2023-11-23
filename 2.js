@@ -74,14 +74,14 @@ function isCorrect(str) {
   
   let stack = [];
   const brackets = {
-    ')':'(',
-    '}':'{',
-    ']':'['
+    ')': '(',
+    '}': '{',
+    ']': '['
   };
 
   // 괄호 문자열의 첫 괄호가 유효한 열린 괄호인지 확인
-  if (brackets[str[0]] === undefined) {
-    return console.log("NO");
+  if (brackets[str[0]] !== undefined) {
+    return false;
   }
 
   // 괄호가 올바른 순서대로 짝 맞춰 있는지 확인
@@ -89,12 +89,26 @@ function isCorrect(str) {
     if (brackets[char] !== undefined) {
       const topElement = stack.pop();
       if (brackets[char] !== topElement) {
-        return console.log("NO");
+        return false;
       }
     } else stack.push(char);
   }
 
-  return console.log("YES");
+  return stack.length === 0;
 }
-const bracket = '({)}[]';
-isCorrect(bracket);
+
+function solution(bracket) {
+  if (isCorrect(bracket) === true) {
+    console.log("YES");
+    return true;
+  } else {
+    console.log("NO");
+    return false;
+  } 
+}
+
+solution('(){}[]');
+solution('({}[])');
+solution('(({})))');
+solution('}{()[]');
+solution('({)}[]'); 
