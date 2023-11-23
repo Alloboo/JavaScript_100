@@ -66,3 +66,35 @@ const array = prompt("배열을 입력하세요")
 
 console.log(quickSort(array));
 */
+
+
+
+// 53번 문제: 괄호 문자열
+function isCorrect(str) {
+  
+  let stack = [];
+  const brackets = {
+    ')':'(',
+    '}':'{',
+    ']':'['
+  };
+
+  // 괄호 문자열의 첫 괄호가 유효한 열린 괄호인지 확인
+  if (brackets[str[0]] === undefined) {
+    return console.log("NO");
+  }
+
+  // 괄호가 올바른 순서대로 짝 맞춰 있는지 확인
+  for (let char of str) {
+    if (brackets[char] !== undefined) {
+      const topElement = stack.pop();
+      if (brackets[char] !== topElement) {
+        return console.log("NO");
+      }
+    } else stack.push(char);
+  }
+
+  return console.log("YES");
+}
+const bracket = '({)}[]';
+isCorrect(bracket);
