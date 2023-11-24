@@ -118,6 +118,7 @@ solution('({)}[]');
 
 
 // 54번 문제: 연속되는 수 판별
+/*
 const checkConsecutive = (str) => {
 
   const nums = str.split(' ').sort((a, b) => { return a-b });
@@ -148,3 +149,26 @@ const solution = (str) => {
 
 solution('1 2 3 4 5'); // expected 'YES'
 solution('1 4 2 6 3'); // expected 'NO'
+*/
+
+
+
+// 55번 문제: 하노이의 탑
+const route = [];
+
+const hanoi = (n, start, end, temp) => {
+
+  if (n === 1) {
+    route.push([start, end]);
+    return;
+  } else {
+    hanoi(n-1, start, temp, end);
+    route.push([start, end]);
+    hanoi(n-1, temp, start, end);
+  }
+
+}
+
+hanoi(3, 'A', 'B', 'C');
+console.log(route);
+console.log(route.length);
