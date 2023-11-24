@@ -70,6 +70,7 @@ console.log(quickSort(array));
 
 
 // 53번 문제: 괄호 문자열
+/*
 function isCorrect(str) {
   
   let stack = [];
@@ -112,3 +113,36 @@ solution('({}[])');
 solution('(({})))');
 solution('}{()[]');
 solution('({)}[]'); 
+*/
+
+
+
+// 54번 문제: 연속되는 수 판별
+const checkConsecutive = (str) => {
+
+  const nums = str.split(' ');
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    if ((nums[i+1] - nums[i]) !== 1) {
+      console.log('nums[i]', nums[i] );
+      console.log((nums[i+1] - nums[i]) );
+      return false;
+    } else return true;
+  }
+
+}
+
+const solution = (str) => {
+
+  if (checkConsecutive(str) === true) {
+    console.log("YES");
+    return true;
+  } else {
+    console.log("NO");
+    return false;
+    }
+
+}
+
+solution('1 2 3 4 5');
+solution('1 4 2 6 3');
