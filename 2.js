@@ -154,6 +154,7 @@ solution('1 4 2 6 3'); // expected 'NO'
 
 
 // 55번 문제: 하노이의 탑
+/*
 const route = [];
 
 const hanoi = (n, start, end, temp) => {
@@ -172,3 +173,37 @@ const hanoi = (n, start, end, temp) => {
 hanoi(3, 'A', 'B', 'C');
 console.log(route);
 console.log(route.length);
+*/
+
+
+
+// 56번 문제: 객체의 함수 응용
+//다음의 객체가 주어졌을 때 한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요.
+
+const nationWidth = {
+   'korea': 220877,
+   'Rusia': 17098242,
+   'China': 9596961,
+   'France': 543965,
+   'Japan': 377915,
+   'England' : 242900,
+  }
+
+const w = nationWidth['korea'];
+
+delete nationWidth['korea'];
+
+const entry = Object.entries(nationWidth); // 객체를 배열로
+const values = Object.values(nationWidth); // 값들을 배열로
+
+let gap = Math.max.apply(null, values); //  배열에서 최대값 찾기
+let item = [];
+
+for (let i in entry) {
+  if (gap > Math.abs(entry[i][1] - w)) {
+    gap = Math.abs(entry[i][1] - w);
+    item = entry[i];
+  }
+}
+
+console.log(item[0], item[1] - w);
