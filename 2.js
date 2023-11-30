@@ -67,8 +67,6 @@ const array = prompt("배열을 입력하세요")
 console.log(quickSort(array));
 */
 
-
-
 // 53번 문제: 괄호 문자열
 /*
 function isCorrect(str) {
@@ -115,8 +113,6 @@ solution('}{()[]');
 solution('({)}[]'); 
 */
 
-
-
 // 54번 문제: 연속되는 수 판별
 /*
 const checkConsecutive = (str) => {
@@ -151,8 +147,6 @@ solution('1 2 3 4 5'); // expected 'YES'
 solution('1 4 2 6 3'); // expected 'NO'
 */
 
-
-
 // 55번 문제: 하노이의 탑
 /*
 const route = [];
@@ -174,8 +168,6 @@ hanoi(3, 'A', 'B', 'C');
 console.log(route);
 console.log(route.length);
 */
-
-
 
 // 56번 문제: 객체의 함수 응용
 //다음의 객체가 주어졌을 때 한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요.
@@ -209,8 +201,6 @@ for (let i in entry) {
 console.log(item[0], item[1] - w);
 */
 
-
-
 // 57번: 1의 개수
 /*
 0부터 1000까지 1의 개수를 세는 프로그램을 만들려고 합니다. 
@@ -218,13 +208,34 @@ console.log(item[0], item[1] - w);
 11은 1이 2번 들어간 셈이죠.
 그렇다면 0부터 1000까지의 수에서 1은 몇 번이나 들어갔을까요? 출력해 주세요.
 */
-
+/*
 const nums = [];
 
 for (let i = 1; i <= 1000; i++) {
   nums.push(i);
 }
 
-const howManyOne = (nums) => {
+const howMany1 = (nums) => {
 
 }
+*/
+
+// 58번 문제: 콤마 찍기
+/*
+const n = prompt('숫자를 입력해주세요.');
+parseInt(n, 10);
+
+console.log(n.toLocaleString());
+
+// 재귀함수 사용
+function comma(s) {
+  if ( s.length <= 3 ) {
+    return s;
+  } else {
+    return s.slice(0, s.length - 3) + ',' + s.slice(s.length - 3);
+  }
+}
+
+const n = prompt('숫자를 입력해주세요.');
+console.log(comma(n));
+*/
