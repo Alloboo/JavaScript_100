@@ -239,3 +239,39 @@ function comma(s) {
 const n = prompt('숫자를 입력해주세요.');
 console.log(comma(n));
 */
+
+
+
+// 59번 문제
+// 총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 
+// 그 문자열을 가운데 정렬을 해주고, 
+// 나머지 빈 부분에는 '='을 채워 넣어주세요.
+/*
+const str = 'MONSTA X';
+const totalStringLength = 50;
+
+const totalPaddingLength = 50 - str.length;
+const rightPadding = Math.floor(totalPaddingLength / 2);
+const leftPadding = Math.ceil(totalPaddingLength / 2);
+
+const paddedString = '='.repeat(leftPadding) + str + '='.repeat(rightPadding);
+
+console.log(paddedString);
+*/
+
+
+
+// 60번 문제: 번호 매기기
+const students = ['강은지','김유정','박현서','최성훈','홍유진','박지호','권윤일','김채리','한지호','김진이','김민호','강채연'];
+students.sort();
+/*
+for (let i = 0, j = 1; i < students.length; i++, j++ ) {
+  const num = j;
+  const name = students[i];
+
+  console.log('번호: ' + num + ', 이름: ' + name);
+}
+*/
+for ( let i in students ) {
+  console.log(`번호: ${parseInt(i, 10)+1}, 이름: ${students[i]}`)
+}
