@@ -209,16 +209,16 @@ console.log(item[0], item[1] - w);
 그렇다면 0부터 1000까지의 수에서 1은 몇 번이나 들어갔을까요? 출력해 주세요.
 */
 /*
-const nums = [];
+let s = '';
 
-for (let i = 1; i <= 1000; i++) {
-  nums.push(i);
+for (let i = 0; i <= 1000; i++) {
+  s += i;
 }
 
-const howMany1 = (nums) => {
-
-}
+console.log(s);
+console.log(s.match(/1/g).length);
 */
+
 
 // 58번 문제: 콤마 찍기
 /*
