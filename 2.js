@@ -219,7 +219,6 @@ console.log(s);
 console.log(s.match(/1/g).length);
 */
 
-
 // 58번 문제: 콤마 찍기
 /*
 const n = prompt('숫자를 입력해주세요.');
@@ -240,11 +239,9 @@ const n = prompt('숫자를 입력해주세요.');
 console.log(comma(n));
 */
 
-
-
 // 59번 문제
-// 총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면 
-// 그 문자열을 가운데 정렬을 해주고, 
+// 총 문자열의 길이는 50으로 제한하고 사용자가 문자열을 입력하면
+// 그 문자열을 가운데 정렬을 해주고,
 // 나머지 빈 부분에는 '='을 채워 넣어주세요.
 /*
 const str = 'MONSTA X';
@@ -259,19 +256,41 @@ const paddedString = '='.repeat(leftPadding) + str + '='.repeat(rightPadding);
 console.log(paddedString);
 */
 
-
-
 // 60번 문제: 번호 매기기
+/*
 const students = ['강은지','김유정','박현서','최성훈','홍유진','박지호','권윤일','김채리','한지호','김진이','김민호','강채연'];
 students.sort();
-/*
+
 for (let i = 0, j = 1; i < students.length; i++, j++ ) {
   const num = j;
   const name = students[i];
 
   console.log('번호: ' + num + ', 이름: ' + name);
 }
-*/
+
 for ( let i in students ) {
   console.log(`번호: ${parseInt(i, 10)+1}, 이름: ${students[i]}`)
 }
+*/
+
+// 61번 문제: 문자열 압축하기
+/*
+const str = "aaaabbbcdddd";
+const user_s = new String(str);
+let result_s = "";
+let store_s = user_s[0];
+let count = 0;
+
+for (let i of user_s) {
+  if (i === store_s) {
+    count += 1;
+  } else {
+    result_s += store_s + String(count);
+    store_s = i;
+    count = 1;
+  }
+}
+
+result_s += store_s + String(count);
+console.log(result_s);
+*/
