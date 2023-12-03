@@ -294,3 +294,40 @@ for (let i of user_s) {
 result_s += store_s + String(count);
 console.log(result_s);
 */
+
+// 62번 문제: 20231203 출력하기
+/*
+1. 코드 내에 숫자가 없어야 합니다.
+    - 예) console.log(20190923)이라고 하시면 안됩니다.
+2. 파일 이름이나 경로를 사용해서는 안됩니다.
+3. 시간, 날짜 함수를 사용해서는 안됩니다.
+4. 에러 번호 출력을 이용해서는 안됩니다.
+5. input을 이용해서는 안됩니다.
+*/
+/*
+const str = "aaccdddeffhhh";
+let result = "";
+
+console.log(
+  `${str.match(/a/g).length}${Number(str.match(/b/g))}${
+    str.match(/c/g).length
+  }${str.match(/d/g).length}${str.match(/e/g).length}${
+    str.match(/f/g).length
+  }${Number(str.match(/g/g))}${str.match(/h/g).length}`
+);
+*/
+
+// 63번 문제
+// 어떤 입력이 주어지면 앞 글자만 줄여 출력하도록 해주세요.
+// 입력은 한글 혹은 영어로 입력되며, 띄어쓰기를 기준으로 하여 짧은 형태로 출력합니다.
+/*
+const str = "복잡한 세상 편하게 살자";
+const arrStr = str.split(" ");
+let result = "";
+
+for (let i in arrStr) {
+  result += arrStr[i].slice(0, 1);
+}
+
+console.log(result);
+*/
