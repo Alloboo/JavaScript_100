@@ -331,3 +331,71 @@ for (let i in arrStr) {
 
 console.log(result);
 */
+
+
+
+// 64번 문제
+// 정량 N에 정확히 맞춰야만 움직이는 화물용 엘리베이터가 있습니다.
+// 화물은 7kg, 3kg 두 가지이며 팔이 아픈 은후는 가장 적게 화물을 옮기고 싶습니다.
+// 가장 적게 옮길 수 있는 횟수를 출력합니다.
+// 만약 어떻게 해도 정량이 N이 되지 않는다면 -1을 출력합니다.
+/*
+let weight = 24;
+let count = 0;
+
+while (true) {
+  if ( weight % 7 === 0) {
+    count += weight / 7;
+    console.log(count);
+    break;
+  }
+  weight -= 3;
+  count += 1;
+  if ( weight < 0 ) {
+    console.log(-1);
+    break;
+  }
+}
+*/
+
+
+// 65번 문제
+// a = [1, 2, 3, 4]
+// b = [a, b, c, d]
+// 이런 리스트가 있을 때 [[1, a], [b, 2], [3, c], [d, 4]] 이런 식으로 a, b 리스트가 번갈아가면서 출력되게 해주세요.
+/*
+const a = [1, 2, 3, 4];
+const b = ['a', 'b', 'c', 'd'];
+
+const result = [];
+
+for (let i = 0; i < a.length; i++) {
+  result.push([a[i], b[i]]);
+}
+
+console.log(result);
+*/
+
+
+// 66번 문제: 블럭탑쌓기
+const top = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG", "EFGHZ"];
+const rule = "ABD";
+const result = [];
+
+const checkRule = (rule) => {
+  const sort = {};
+
+  for (let i in rule) {
+    sort[i] = i+1;
+  }
+
+  console.log(sort);
+  return sort;
+}
+const solution = (top, rule) => {
+
+  const rule = checkRule(rule);
+
+
+}
+solution(top, rule);
