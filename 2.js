@@ -378,6 +378,7 @@ console.log(result);
 
 
 // 66번 문제: 블럭탑쌓기
+/*
 const top = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG", "EFGHZ"];
 const rule = "ABD";
 const result = [];
@@ -399,3 +400,62 @@ const solution = (top, rule) => {
 
 }
 solution(top, rule);
+*/
+
+
+// 67번 문제: 민수의 악수
+/*
+function solution(actualHandshake) {
+  let person = 0;
+  let totalHandshake = 0;
+  let mingyuHandshake = 0;
+
+  while(true) {
+    totalHandshake = parseInt((person*(person - 1))/2);
+
+    // actualHandshake를 초과하는 만큼이 민수의 악수 횟수가 됨
+    if ( actualHandshake < totalHandshake ) {
+      break;
+    }
+
+    mingyuHandshake = totalHandshake;
+    person += 1;
+  }
+
+  return [parseInt(actualHandshake-mingyuHandshake, 10), person];
+}
+const actualHandshake = 59;
+console.log(solution(actualHandshake));
+*/
+
+
+// 68번 문제
+const getArrivalTime = (t, n) => {
+  const answer = [];
+
+  let now = n.split(':').map(a => parseInt(a, 10));
+  now = now[0] * 60 + now[1];
+  
+  for ( let i in t ) {
+    let time = t[i].split(':').map(a => parseInt(a, 10));
+    time = time[0] * 60 + time[1]
+
+    if ( now > time ) {
+      answer.push("지나갔습니다.");
+    } else {
+      let remainingTime = time - now;
+      const hours = Math.floor(remainingTime / 60);
+      const minutes = remainingTime % 60;
+      
+      const formattedHours = String(hours).padStart(2, '0');
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      
+      const formattedTime = `${formattedHours}시간 ${formattedMinutes}분`;
+      answer.push(formattedTime);
+    }
+  }
+  return answer;
+}
+const timetable = ["12:30", "13:20", "14:13"];
+const currentTime = "12:40";
+console.log(getArrivalTime(timetable, currentTime));
