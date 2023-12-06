@@ -464,6 +464,7 @@ console.log(getArrivalTime(timetable, currentTime));
 
 
 // 69번 문제: 골드바흐의 추측
+/*
 function getPrime() {
   let prime = [];
   let isPrime = true;
@@ -494,14 +495,56 @@ function solution(n) {
   }
 
   let gap = goldbachPartition.map( e => e[1] - e[0]);
-  let smallValue = goldbachPartition[gap.indexOf(Math.min.apply(null, gap))];
-  let bigValue = goldbachPartition[gap.indexOf(Math.max.apply(null, gap))];
+  let smallGap = goldbachPartition[gap.indexOf(Math.min.apply(null, gap))];
+  let bigGap = goldbachPartition[gap.indexOf(Math.max.apply(null, gap))];
 
   console.log(goldbachPartition);
-  console.log(smallValue);
-  console.log(bigValue);
+  console.log(smallGap);
+  console.log(bigGap);
 
 }
 
 const n = 100;
 solution(n);
+*/
+
+
+
+// 70번 문제: 행렬 곱셈
+function solution(a, b) {
+    let c = []; // 결과 행렬을 담을 배열 초기화
+    
+    const len = a[0].length;
+    if (len === b.length) {
+       // a의 열과 b의 행이 같으면 행렬 곱셈 가능
+
+        // 결과 행렬의 각 행 계산
+        for (let i = 0; i < len; i++) {
+            // 현재 행을 담을 배열 초기화
+            let row = [];
+            
+            // 결과 행렬의 각 열 계산
+            for (let j = 0; j < len; j++) {
+                // 결과 행렬의 각 원소 초기화
+                let x = 0;
+                
+                // a의 현재 행과 b의 현재 열 계산
+                for (let k = 0; k < len; k++) {
+                    x += a[i][k] * b[k][j];
+                }
+
+                row.push(x);
+              }            
+            c.push(row);
+        }
+        return c;
+    } else {
+        // 행렬 곱셈이 불가능한 경우
+        return -1;
+    }
+}
+
+const a = [[1, 2], [2, 4]];
+const b = [[1, 0], [0, 3]];
+
+solution(a, b);
