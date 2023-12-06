@@ -430,6 +430,7 @@ console.log(solution(actualHandshake));
 
 
 // 68번 문제
+/*
 const getArrivalTime = (t, n) => {
   const answer = [];
 
@@ -459,3 +460,48 @@ const getArrivalTime = (t, n) => {
 const timetable = ["12:30", "13:20", "14:13"];
 const currentTime = "12:40";
 console.log(getArrivalTime(timetable, currentTime));
+*/
+
+
+// 69번 문제: 골드바흐의 추측
+function getPrime() {
+  let prime = [];
+  let isPrime = true;
+
+  for (let i = 2; i < 100; i++) {
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) {
+        isPrime = false;
+      }
+    }
+    if (isPrime) {
+      prime.push(i);
+    }
+    isPrime = true;
+  }
+  return prime;
+}
+
+function solution(n) {
+  const prime = getPrime();
+
+  const goldbachPartition = [];
+
+  for (let p of prime) {
+    if (prime.includes(n - p) && p <= (n - p)) {
+      goldbachPartition.push([p, n - p]);
+    }
+  }
+
+  let gap = goldbachPartition.map( e => e[1] - e[0]);
+  let smallValue = goldbachPartition[gap.indexOf(Math.min.apply(null, gap))];
+  let bigValue = goldbachPartition[gap.indexOf(Math.max.apply(null, gap))];
+
+  console.log(goldbachPartition);
+  console.log(smallValue);
+  console.log(bigValue);
+
+}
+
+const n = 100;
+solution(n);
