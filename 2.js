@@ -511,6 +511,7 @@ solution(n);
 
 
 // 70번 문제: 행렬 곱셈
+/*
 function solution(a, b) {
     let c = []; // 결과 행렬을 담을 배열 초기화
     
@@ -548,3 +549,36 @@ const a = [[1, 2], [2, 4]];
 const b = [[1, 0], [0, 3]];
 
 solution(a, b);
+*/
+
+
+
+// 71번 문제: 깊이 우선 탐색
+const graph = {
+  'A': ['E', 'C', 'B'],
+  'B': ['A'],
+  'C': ['A'],
+  'D': ['E','F'],
+  'E': ['D', 'A'],
+  'F': ['D'],
+};
+
+function dfs(graph, start) {
+  let visited = [];
+  let stack = [start];
+
+  while (stack.length !== 0) {
+    let n = stack.pop();
+    if (!visited.includes(n)) {
+      visited.push(n);
+      let sub = graph[n].filter(x => !visited.includes(x)).sort((a, b) => graph[n].indexOf(b) - graph[n].indexOf(a));
+      for (let i of sub) {
+        stack.push(i);
+      }
+    }
+  }
+
+  return visited;
+}
+console.log(dfs(graph, 'E'));
+
