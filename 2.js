@@ -619,7 +619,7 @@ console.log(bfs(graph, 'E'));
 
 
 // 73번 문제: 최단 경로 찾기
-
+/*
 const graph = {
   'A': ['B', 'C'],
   'B': ['A', 'D', 'E'],
@@ -659,4 +659,45 @@ function minDistance(graph, path) {
   }
 }
 console.log(minDistance(graph, path));
+*/
 
+
+
+// 74번 문제: 최장 경로 찾기
+const graph = {
+  1: [2, 3, 4],
+  2: [1, 3, 4, 5, 6],
+  3: [1, 2, 7],
+  4: [1, 2, 5, 6],
+  5: [2, 4, 6, 7],
+  6: [2, 4, 5, 7],
+  7: [3, 5, 6]
+};
+const path = '1 7';
+
+function maxDistance(graph, path) {
+  const start = parseInt(path.split(' ')[0]);
+  const end = parseInt(path.split(' ')[1]);
+
+  let maxLen = 0;
+
+  function dfs(node, visited, length) {
+    if (node === end) {
+      maxLen = Math.max(maxLen, length);
+      return;
+    }
+
+    visited.add(node);
+
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        dfs(neighbor, new Set(visited), length + 1);
+      }
+    }
+  }
+
+  dfs(start, new Set(), 0);
+
+  return maxLen;
+}
+console.log(maxDistance(graph, path));
