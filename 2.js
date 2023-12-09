@@ -332,8 +332,6 @@ for (let i in arrStr) {
 console.log(result);
 */
 
-
-
 // 64번 문제
 // 정량 N에 정확히 맞춰야만 움직이는 화물용 엘리베이터가 있습니다.
 // 화물은 7kg, 3kg 두 가지이며 팔이 아픈 은후는 가장 적게 화물을 옮기고 싶습니다.
@@ -358,7 +356,6 @@ while (true) {
 }
 */
 
-
 // 65번 문제
 // a = [1, 2, 3, 4]
 // b = [a, b, c, d]
@@ -375,7 +372,6 @@ for (let i = 0; i < a.length; i++) {
 
 console.log(result);
 */
-
 
 // 66번 문제: 블럭탑쌓기
 /*
@@ -402,7 +398,6 @@ const solution = (top, rule) => {
 solution(top, rule);
 */
 
-
 // 67번 문제: 민수의 악수
 /*
 function solution(actualHandshake) {
@@ -427,7 +422,6 @@ function solution(actualHandshake) {
 const actualHandshake = 59;
 console.log(solution(actualHandshake));
 */
-
 
 // 68번 문제
 /*
@@ -461,7 +455,6 @@ const timetable = ["12:30", "13:20", "14:13"];
 const currentTime = "12:40";
 console.log(getArrivalTime(timetable, currentTime));
 */
-
 
 // 69번 문제: 골드바흐의 추측
 /*
@@ -508,8 +501,6 @@ const n = 100;
 solution(n);
 */
 
-
-
 // 70번 문제: 행렬 곱셈
 /*
 function solution(a, b) {
@@ -551,8 +542,6 @@ const b = [[1, 0], [0, 3]];
 solution(a, b);
 */
 
-
-
 // 71번 문제: 깊이 우선 탐색
 /*
 const graph = {
@@ -584,8 +573,6 @@ function dfs(graph, start) {
 console.log(dfs(graph, 'E'));
 */
 
-
-
 // 72번 문제: 넓이 우선 탐색
 /*
 const graph = {
@@ -615,8 +602,6 @@ function bfs(graph, start) {
 }
 console.log(bfs(graph, 'E'));
 */
-
-
 
 // 73번 문제: 최단 경로 찾기
 /*
@@ -661,9 +646,8 @@ function minDistance(graph, path) {
 console.log(minDistance(graph, path));
 */
 
-
-
 // 74번 문제: 최장 경로 찾기
+/*
 const graph = {
   1: [2, 3, 4],
   2: [1, 3, 4, 5, 6],
@@ -701,3 +685,27 @@ function maxDistance(graph, path) {
   return maxLen;
 }
 console.log(maxDistance(graph, path));
+*/
+
+// 75번 문제
+function countClap(number) {
+  let count = "";
+  let clap = "";
+  const claps = ["3", "6", "9"];
+
+  for (let i = 1; i <= number; i++) {
+    const n = String(i).padStart(2, "0");
+
+    if (n.charAt(0) === "0" && claps.includes(n.charAt(1))) {
+      count++;
+      clap += n + " ";
+    } else if (claps.includes(n.charAt(0)) && claps.includes(n.charAt(1))) {
+      count++;
+      clap += n + " ";
+    }
+  }
+  console.log(clap);
+  return count;
+}
+const number = "93";
+console.log(countClap(number));
