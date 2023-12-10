@@ -688,6 +688,7 @@ console.log(maxDistance(graph, path));
 */
 
 // 75번 문제
+/*
 function countClap(number) {
   let count = "";
   let clap = "";
@@ -709,3 +710,54 @@ function countClap(number) {
 }
 const number = "93";
 console.log(countClap(number));
+*/
+
+// 76번 문제
+/*
+let 사각형 = 5;
+let 탐색가능지역 = 3;
+let 지뢰밭 = [
+  [1, 0, 0, 1, 0],
+  [0, 1, 0, 0, 1],
+  [0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0]
+];
+
+let iadd = 0;
+let jadd = 0;
+let value = 0;
+let valueArray = [];
+
+for ( let iadd = 0; iadd <= 사각형 - 탐색가능지역; iadd++ ) {
+  for (let jadd = 0; jadd <= 사각형 - 탐색가능지역; jadd++) {
+    for (let i)
+  }
+}
+*/
+
+// 77번 문제
+function caseCommon(str1) {
+  let result = [];
+  for (let i = 1; i <= str1.length + 1; i++) {
+    for (let j = 0; j < i; j++) {
+      result.push(str1.slice(j, j + str1.length - i + 1));
+    }
+  }
+  return result;
+}
+
+function solution(str1, str2) {
+  const arrStr1 = caseCommon(str1);
+  const arrStr2 = caseCommon(str2);
+
+  let intersection = arrStr1.filter((x) => arrStr2.includes(x));
+  intersection.sort((a, b) => {
+    return b.length - a.length;
+  });
+
+  return intersection[0].length;
+}
+const str1 = "THISISSTRINGS";
+const str2 = "THISIS";
+console.log(solution(str1, str2));
