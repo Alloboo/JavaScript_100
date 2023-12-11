@@ -713,7 +713,7 @@ console.log(countClap(number));
 */
 
 // 76번 문제
-/*
+
 let 사각형 = 5;
 let 탐색가능지역 = 3;
 let 지뢰밭 = [
@@ -731,12 +731,26 @@ let valueArray = [];
 
 for ( let iadd = 0; iadd <= 사각형 - 탐색가능지역; iadd++ ) {
   for (let jadd = 0; jadd <= 사각형 - 탐색가능지역; jadd++) {
-    for (let i)
+    
+    for (let i = iadd; i <= 탐색가능지역 - 1 + iadd; i++) {
+      for (let j = jadd; j <= 탐색가능지역 - 1 + jadd; j++) {
+        //console.log(`지뢰밭 좌표 (${i}, ${j})`);
+        value += 지뢰밭[i][j];
+      }
+    }
+    valueArray.push(value);
+    // console.log("---------"); // 단순 구분선
+    value = 0; // value 초기화
   }
+  // console.log("!!!!!!!!!"); // 단순 구분선
 }
-*/
+
+console.log(valueArray);
+console.log(Math.max.apply(null, valueArray));
+
 
 // 77번 문제
+/*
 function caseCommon(str1) {
   let result = [];
   for (let i = 1; i <= str1.length + 1; i++) {
@@ -761,3 +775,7 @@ function solution(str1, str2) {
 const str1 = "THISISSTRINGS";
 const str2 = "THISIS";
 console.log(solution(str1, str2));
+*/
+
+
+
