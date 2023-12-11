@@ -713,7 +713,7 @@ console.log(countClap(number));
 */
 
 // 76번 문제
-
+/*
 let 사각형 = 5;
 let 탐색가능지역 = 3;
 let 지뢰밭 = [
@@ -747,6 +747,8 @@ for ( let iadd = 0; iadd <= 사각형 - 탐색가능지역; iadd++ ) {
 
 console.log(valueArray);
 console.log(Math.max.apply(null, valueArray));
+*/
+
 
 
 // 77번 문제
@@ -778,4 +780,32 @@ console.log(solution(str1, str2));
 */
 
 
+
+// 78번 문제
+
+function solution(input) {
+  const plats = parseInt(input.split(' ')[0]);
+  const k = parseInt(input.split(' ')[1]);
+
+  let index = 0;
+  let arrPlats = [];
+  for (let i = 0; i < plats; i++) {
+    arrPlats.push(i + 1);
+  };
+
+  while ( arrPlats.length > 2) {
+    if ( index > arrPlats.length - 1) {
+      index -= arrPlats.length;
+    }
+
+    arrPlats.splice(index, 1);
+    index += k;
+    index -= 1;
+  }
+
+  return arrPlats;
+}
+
+const input = '6 3';
+console.log(solution(input));
 
