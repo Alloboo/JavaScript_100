@@ -813,7 +813,7 @@ console.log(solution(input));
 
 
 // 79번 문제
-
+/*
 function rotate(inL, inN){
 
   const arr = inL.slice();
@@ -835,3 +835,38 @@ function rotate(inL, inN){
 const l = [10, 20, 25, 27, 34, 35, 39]; //기존 입력 값
 const n = 2; //순회 횟수
 rotate(l, n);
+*/
+
+
+
+// 80번 문제: 순열과 조합
+function getCombinations(input, n) {
+  let combinations = [];
+
+  const generateCombinations = (prefix, remaining, length) => {
+    if (length === 0) {
+      combinations.push(prefix);
+      return;
+    }
+
+    for (let i = 0; i < remaining.length; i++) {
+      generateCombinations(
+        prefix + remaining[i],
+        remaining.slice(i + 1),
+        length - 1
+      );
+    }
+  };
+
+  generateCombinations('', input, n);
+  return combinations;
+}
+
+const input = 'ㄱ,ㄴ,ㄷ,ㄹ'.split(',');
+const number = 3;
+
+const combinations = getCombinations(input, number);
+
+console.log(combinations);
+console.log(`Number of combinations: ${combinations.length}`);
+
