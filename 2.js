@@ -782,7 +782,7 @@ console.log(solution(str1, str2));
 
 
 // 78번 문제
-
+/*
 function solution(input) {
   const plats = parseInt(input.split(' ')[0]);
   const k = parseInt(input.split(' ')[1]);
@@ -808,4 +808,30 @@ function solution(input) {
 
 const input = '6 3';
 console.log(solution(input));
+*/
 
+
+
+// 79번 문제
+
+function rotate(inL, inN){
+
+  const arr = inL.slice();
+  for (let i = 0; i < inN; i++) {
+    arr.unshift(arr.pop());
+  }
+
+  const sortedArr = [];
+  for (let i in arr) {
+    sortedArr.push(Math.abs(inL[i]-arr[i]));
+  }
+
+  const m = Math.min.apply(null, sortedArr);
+  const index = sortedArr.indexOf(m);
+
+  console.log('index: ', index);
+  console.log('value: ', inL[index], arr[index]);
+}
+const l = [10, 20, 25, 27, 34, 35, 39]; //기존 입력 값
+const n = 2; //순회 횟수
+rotate(l, n);
