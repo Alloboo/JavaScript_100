@@ -875,6 +875,7 @@ console.log(`Number of combinations: ${combinations.length}`);
 
 
 // 81번 문제: 지뢰찾기
+/*
 const flag = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0";
 let minesweeper = flag.split('\n');
 
@@ -906,3 +907,28 @@ for (let ms of minesweeper) {
   row++;
 }
 console.log(minesweeper);
+*/
+
+
+
+// 82번 문제: 수학 괄호 파싱
+function checkExpression(data) {
+  // 괄호 파싱
+  let bracket = 0;
+  for (let i=0; i < data.length; i++) {
+    if (data.charAt(i) === '(') {
+      bracket++;
+    }
+    if (data.charAt(i) === ')') {
+      bracket++;
+    }
+  }
+
+  if (bracket !== 0) {
+    console.log('식이 올바르지 않습니다.');
+  } else { 
+    console.log('식이 올바르게 작성되었습니다.')}
+}
+
+const data = '5 + 7) * (3 * 5)';
+checkExpression(data);
