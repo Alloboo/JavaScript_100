@@ -840,6 +840,7 @@ rotate(l, n);
 
 
 // 80번 문제: 순열과 조합
+/*
 function getCombinations(input, n) {
   let combinations = [];
 
@@ -869,4 +870,39 @@ const combinations = getCombinations(input, number);
 
 console.log(combinations);
 console.log(`Number of combinations: ${combinations.length}`);
+*/
 
+
+
+// 81번 문제: 지뢰찾기
+const flag = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0";
+let minesweeper = flag.split('\n');
+
+for (let i in minesweeper) {
+    minesweeper[i] = minesweeper[i].replaceAll('1', 'f').split(' ');
+}
+
+let search = 0;
+let row = 0;
+
+for (let ms of minesweeper) {
+  for (let m of ms) {
+    if (m === 'f') {
+      search = ms.indexOf(m);
+      if (search > 0) {
+        ms[search-1] = '*';
+      }
+      if (search < 4) {
+        ms[search+1] = '*';
+      }
+      if (row > 0) {
+        minesweeper[row-1][search] = '*';
+      }
+      if (row < 4) {
+        minesweeper[row+1][search] = '*';
+      }
+    }
+  }
+  row++;
+}
+console.log(minesweeper);
