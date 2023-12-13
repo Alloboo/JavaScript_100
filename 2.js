@@ -912,8 +912,9 @@ console.log(minesweeper);
 
 
 // 82번 문제: 수학 괄호 파싱
+/*
 function checkExpression(data) {
-  // 괄호 파싱
+
   let bracket = 0;
   for (let i=0; i < data.length; i++) {
     if (data.charAt(i) === '(') {
@@ -926,9 +927,49 @@ function checkExpression(data) {
 
   if (bracket !== 0) {
     console.log('식이 올바르지 않습니다.');
+    return false;
   } else { 
     console.log('식이 올바르게 작성되었습니다.')}
+    return true;
 }
 
 const data = '5 + 7) * (3 * 5)';
 checkExpression(data);
+*/
+
+
+
+// 83번 문제: 수학 괄호 파싱2
+function checkExpression(data) {
+  const ex = data.split('');
+  let count = 0;
+  let stack = [];
+  const bracket = {
+    ')': '(',
+    '}': '{',
+  }
+
+
+  for (let i of ex) {
+    if ( i === '(' || i === '{' ) {
+      stack.push(i);
+      count++;
+    } else if (i === ')' || i === '}') {
+      if (count === 0 || stack.pop() !== bracket[i]) {
+        console.log('식이 올바르지 않습니다.');
+        return false;
+      }
+      count--;
+    }
+  }
+
+  if (count !== 0 || stack.length !== 0) {
+    console.log('식이 올바르지 않습니다.');
+    return false;
+  }
+
+  console.log('식이 올바르게 작성되었습니다.');
+  return true;
+}
+checkExpression('5 + 7 * {(3 * 5)}');
+checkExpression('5 + 7){ * (3 * 5)');
