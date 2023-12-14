@@ -980,6 +980,7 @@ checkExpression('5 + 7 * ({3 * 5)}');
 
 
 // 84번 문제: 숫자뽑기
+/*
 function solution(n) {
 
   const k = n.length;
@@ -1000,3 +1001,45 @@ function solution(n) {
 
 const n = '1723';
 solution(n);
+*/
+
+
+
+// 85번 문제: 숫자놀이
+function getCases(n) {
+
+  let answer = '1';
+  if ( n === 1 ) {
+    return 1;
+  }
+
+  for (let i = 1; i < n; i++) {
+    answer = rule(answer);
+  }
+
+  return answer;
+}
+
+function rule(answer) {
+  let answerMax = 9;
+  let result = '';
+
+  for (let i = 1; i < answerMax; i++) {
+    // 문자열 내의 모든 패턴 중 해당 숫자(i) 찾기
+    let re = new RegExp(i, 'g');
+    // i의 개수 세기
+    // str.match(regexp) 정규식과 일치하는 부분 배열로 반환
+    // 없으면 null
+    let count = (answer.match(re) || []).length;
+
+    if (count >= 1) {
+      result = result + String(i) + String(count);
+    }
+  }
+
+  console.log('result', result)
+  return result;
+}
+
+const n = 6;
+console.log(getCases(n));
