@@ -940,6 +940,7 @@ checkExpression(data);
 
 
 // 83번 문제: 수학 괄호 파싱2
+/*
 function checkExpression(data) {
   const ex = data.split('');
   let count = 0;
@@ -973,3 +974,29 @@ function checkExpression(data) {
 }
 checkExpression('5 + 7 * {(3 * 5)}');
 checkExpression('5 + 7){ * (3 * 5)');
+checkExpression('5 + 7 * ({3 * 5)}');
+*/
+
+
+
+// 84번 문제: 숫자뽑기
+function solution(n) {
+
+  const k = n.length;
+
+  // 경우의 수 찾기
+  const cases = [];
+  for (let i = 0; i < k; i++) {
+    for (let j = i + 1; j < k; j++) {
+      cases.push(n.charAt(i) + n.charAt(j));
+    }
+  }
+
+  // 가장 큰 수 찾기
+  cases.sort((a , b) => b - a);
+  console.log(cases[0]);
+  return;
+}
+
+const n = '1723';
+solution(n);
