@@ -1006,6 +1006,7 @@ solution(n);
 
 
 // 85번 문제: 숫자놀이
+/*
 function getCases(n) {
 
   let answer = '1';
@@ -1043,3 +1044,40 @@ function rule(answer) {
 
 const n = 6;
 console.log(getCases(n));
+*/
+
+
+
+// 86번 문제
+function manger(point, dish) {
+
+  dish -= 1;
+  let answer = 0;
+  let s = point.slice().sort((a, b) => a - b);
+  console.log('s', s);
+
+  while (true) {
+    let p = point.shift();
+
+    if (s[0] === p) {
+      if (dish === 0) {
+        break;
+      }
+      dish -= 1;
+      s.shift();
+    } else {
+      point.push(p);
+      if (dish === 0) {
+        dish = point.length - 1;
+      } else {
+        dish = dish - 1;
+      }
+    }
+    answer += 1;
+  }
+  return answer;
+}
+
+const point = [5,2,3,1,2,5];
+const dish = 1;
+console.log(manger(point, dish));
