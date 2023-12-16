@@ -749,8 +749,6 @@ console.log(valueArray);
 console.log(Math.max.apply(null, valueArray));
 */
 
-
-
 // 77번 문제
 /*
 function caseCommon(str1) {
@@ -778,8 +776,6 @@ const str1 = "THISISSTRINGS";
 const str2 = "THISIS";
 console.log(solution(str1, str2));
 */
-
-
 
 // 78번 문제
 /*
@@ -810,8 +806,6 @@ const input = '6 3';
 console.log(solution(input));
 */
 
-
-
 // 79번 문제
 /*
 function rotate(inL, inN){
@@ -836,8 +830,6 @@ const l = [10, 20, 25, 27, 34, 35, 39]; //기존 입력 값
 const n = 2; //순회 횟수
 rotate(l, n);
 */
-
-
 
 // 80번 문제: 순열과 조합
 /*
@@ -871,8 +863,6 @@ const combinations = getCombinations(input, number);
 console.log(combinations);
 console.log(`Number of combinations: ${combinations.length}`);
 */
-
-
 
 // 81번 문제: 지뢰찾기
 /*
@@ -909,8 +899,6 @@ for (let ms of minesweeper) {
 console.log(minesweeper);
 */
 
-
-
 // 82번 문제: 수학 괄호 파싱
 /*
 function checkExpression(data) {
@@ -936,8 +924,6 @@ function checkExpression(data) {
 const data = '5 + 7) * (3 * 5)';
 checkExpression(data);
 */
-
-
 
 // 83번 문제: 수학 괄호 파싱2
 /*
@@ -977,8 +963,6 @@ checkExpression('5 + 7){ * (3 * 5)');
 checkExpression('5 + 7 * ({3 * 5)}');
 */
 
-
-
 // 84번 문제: 숫자뽑기
 /*
 function solution(n) {
@@ -1002,8 +986,6 @@ function solution(n) {
 const n = '1723';
 solution(n);
 */
-
-
 
 // 85번 문제: 숫자놀이
 /*
@@ -1046,9 +1028,8 @@ const n = 6;
 console.log(getCases(n));
 */
 
-
-
 // 86번 문제
+/*
 function manger(point, dish) {
 
   dish -= 1;
@@ -1081,3 +1062,173 @@ function manger(point, dish) {
 const point = [5,2,3,1,2,5];
 const dish = 1;
 console.log(manger(point, dish));
+*/
+
+// 88번 문제
+/*
+function makeMap(row, column, char, hurdle) {
+  // 지도 초기화
+  let map = [];
+  for (let i = 0; i < column + 2; i++) {
+    map.push(Array(row + 2).fill(0));
+  }
+
+  // 외벽 그리기
+  for (let i in map) {
+    for (let j in map[0]) {
+      // i와 j의 타입은 string이다.
+      if (i == 0 || j == map[0].length - 1 || j == 0 || i == map.length - 1) {
+        map[i][j] = 2;
+      }
+    }
+  }
+
+  // 캐릭터 위치 추가
+  map[char[0] + 1][char[1] + 1] = 1;
+
+  // 장애물 추가
+  for (let h of hurdle) {
+    if (map[h[0] + 1][h[1] + 1] != 1) {
+      map[h[0] + 1][h[1] + 1] = 2;
+    } else {
+      map[h[0] + 1][h[1] + 1] = 1;
+    }
+  }
+
+  // 맵 출력
+  for (let m of map) {
+    console.log(m);
+  }
+}
+
+
+makeMap(row, column, char, hurdle);
+*/
+
+// 89번 문제
+/*
+const row = 4;
+const column = 5;
+const char = [0, 0];
+const hurdle = [
+  [0, 1],
+  [1, 1],
+  [2, 3],
+  [1, 3],
+];
+const moving = [2, 2, 2, 4, 4, 4];
+
+function makeMap(row, column, char, hurdle) {
+  // 지도 초기화
+  let map = [];
+  for (let i = 0; i < column + 2; i++) {
+    map.push(Array(row + 2).fill(0));
+  }
+
+  // 외벽 그리기
+  for (let i in map) {
+    for (let j in map[0]) {
+      // i와 j의 타입은 string이다.
+      if (i == 0 || j == map[0].length - 1 || j == 0 || i == map.length - 1) {
+        map[i][j] = 2;
+      }
+    }
+  }
+
+  // 캐릭터 위치 추가
+  map[char[0] + 1][char[1] + 1] = 1;
+
+  // 장애물 추가
+  for (let h of hurdle) {
+    if (map[h[0] + 1][h[1] + 1] != 1) {
+      map[h[0] + 1][h[1] + 1] = 2;
+    } else {
+      map[h[0] + 1][h[1] + 1] = 1;
+    }
+  }
+
+  return map;
+}
+
+function move(map, moving) {
+  let x = 0;
+  let y = 0;
+
+  // 캐릭터 이동 전 위치
+  for (let i of map) {
+    if (i.includes(1)) {
+      x = map.indexOf(i);
+      y = i.indexOf(1);
+    }
+  }
+  map[y][x] = 0;
+
+  // 캐릭터 이동 후 위치
+  for (let i of moving) {
+    if (i == 1 && map[y - 1][x] != 2) {
+      y--;
+    } else if (i == 2 && map[y + 1][x] != 2) {
+      y++;
+    } else if (i == 3 && map[y][x - 1] != 2) {
+      x--;
+    } else if (i == 4 && map[y][x + 1] != 2) {
+      x++;
+    }
+  }
+
+  map[y][x] = 1;
+
+  // 지도 출력
+  for (let i of map) {
+    console.log(i);
+  }
+  return [x, y];
+}
+move(makeMap(row, column, char, hurdle), moving);
+*/
+
+// 90번 문제
+// 아스키코드를 이용하여 약의 성분을 저장한 배열 생성
+let l = [];
+for (let i = 65; i < 91; i++) {
+  l.push(String.fromCharCode(i));
+}
+
+// l에서 랜덤으로 8개의 성분을 선택해서 문자열로 반환
+function randomItem(a) {
+  let string = [];
+  while (string.length !== 8) {
+    let b = a[Math.floor(Math.random() * a.length)];
+    if (!string.includes(b)) {
+      string.push(b);
+    }
+  }
+  let medicine = string.join("");
+
+  return medicine;
+}
+
+// 100가지 다른 약의 성분을 저장한 배열 생성
+let total_medicine = [];
+for (let i = 0; i < 100; i++) {
+  let m = randomItem(l);
+  if (!total_medicine.includes(m)) {
+    total_medicine.push(m);
+  }
+}
+
+const input = "ABCDEFGH";
+let result = [];
+
+for (let i of total_medicine) {
+  let setInput = new Set(input);
+  let setTotal = new Set(i);
+  let interSection = new Set([...setInput].filter((x) => setTotal.has(x)));
+
+  if (interSection.size === parseInt(input[1], 10)) {
+    result.push(i);
+  }
+}
+
+console.log("result", result);
+console.log(result.length);
