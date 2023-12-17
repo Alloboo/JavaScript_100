@@ -1188,6 +1188,7 @@ move(makeMap(row, column, char, hurdle), moving);
 */
 
 // 90번 문제
+/*
 // 아스키코드를 이용하여 약의 성분을 저장한 배열 생성
 let l = [];
 for (let i = 65; i < 91; i++) {
@@ -1232,3 +1233,100 @@ for (let i of total_medicine) {
 
 console.log("result", result);
 console.log(result.length);
+*/
+
+//  91번 문제
+/*
+let student_score = [];
+let class_score = [];
+let total_score = [];
+
+// 7개의 반에 대한 반복
+for (let k = 0; k < 7; k++) {
+  class_score = [];
+  // 각 반당 30명의 학생에 대한 반복
+  for (let j = 0; j < 30; j++) {
+    student_score = [];
+    // 각 학생의 5과목 성적 만들기
+    for (let i = 0; i < 5; i++) {
+      student_score.push(Math.floor(Math.random() * 100) + 1);
+    }
+    class_score.push(student_score);
+  }
+  total_score.push(class_score);
+}
+
+console.log(total_score);
+
+let total_average = [];
+let c_average = [];
+let s_average = 0;
+let s_sum = 0;
+let c_sum = 0;
+let student_one = 0;
+let winner = 0;
+
+// 각 반에 대한 반복
+for (let c of total_score) {
+  for (let s of c) {
+    // 각 학생의 성적 합 및 평균 계산
+    s_sum = s.reduce((a, b) => a + b);
+    s_average = s_sum / 5;
+    c_average.push(s_average);
+    if (winner < s_average) {
+      winner = s_average;
+    }
+  }
+  console.log(winner);
+  winner = 0;
+  total_average.push(c_average.reduce((a, b) => a + b) / 30);
+  c_average = [];
+}
+console.log(total_average);
+console.log(total_average.reduce((a, b) => a + b) / 7);
+*/
+
+// 92번 문제
+const input = `이대표,'333,356,766','S은행','100-0000-0000-001'
+최차장,'5,000,000','S은행','100-0000-0000-002'
+이과장,'3,200,000','S은행','100-0000-0000-003'
+홍팀장,'3,300,000','S은행','100-0000-0000-004'
+이대리,'5,300,000','S은행','100-0000-0000-005'`;
+
+let arrInput = input.split("\n");
+let value = [];
+
+// 금액만 추출
+for (let i of arrInput) {
+  let j = i.split(",");
+  let k = j.slice(1, j.length - 2);
+  value.push(k.join(""));
+}
+
+console.log(value);
+let s1 = "";
+let s2 = "";
+let result = [];
+for (let val of value) {
+  for (let v of val) {
+    if (v != "'") {
+      if (v == 3) {
+        s1 += "1";
+        s2 += "2";
+      } else if (v == 4) {
+        s1 += "2";
+        s2 += "2";
+      } else if (v == 6) {
+        s1 += 1;
+        s2 += 5;
+      } else {
+        s1 += v;
+        s2 += "0";
+      }
+    }
+  }
+  result.push([parseInt(s1, 10), parseInt(s2, 10)]);
+  s1 = "";
+  s2 = "";
+}
+console.log(result);
