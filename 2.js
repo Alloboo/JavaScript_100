@@ -1287,6 +1287,7 @@ console.log(total_average.reduce((a, b) => a + b) / 7);
 */
 
 // 92번 문제
+/*
 const input = `이대표,'333,356,766','S은행','100-0000-0000-001'
 최차장,'5,000,000','S은행','100-0000-0000-002'
 이과장,'3,200,000','S은행','100-0000-0000-003'
@@ -1330,3 +1331,40 @@ for (let val of value) {
   s2 = "";
 }
 console.log(result);
+*/
+
+
+
+// 93번 문제
+function solution(frame, page) {
+  let runTime = 0;
+  let temp = [];
+
+  // frame === 0이면 page의 크기만큼 6을 곱해주고 끝냄
+  if (frame === 0) {
+    runTime = page.length * 6;
+    return runTime;;
+  }
+
+  for (let i of page) {
+    if (temp.includes(i)) {
+      runTime += 1;
+    } else {
+      // 배열이 비었으면 무조건 넣어야 하니 if문 사용
+      if (temp.length < frame) {
+        temp.push(i);
+      } else {
+        temp.shift();
+        temp.push(i);
+      }
+
+      // if문 실행에 상관없이 runTime은 6이 추가됨
+      runTime += 6;
+    }
+  }
+  return runTime;
+}
+
+const frame = 3;
+const page = 'BCBAEBCE'.split('');
+console.log(solution(frame, page))
