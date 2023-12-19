@@ -1336,6 +1336,7 @@ console.log(result);
 
 
 // 93번 문제
+/*
 function solution(frame, page) {
   let runTime = 0;
   let temp = [];
@@ -1368,3 +1369,40 @@ function solution(frame, page) {
 const frame = 3;
 const page = 'BCBAEBCE'.split('');
 console.log(solution(frame, page))
+*/
+
+
+
+// 94번 문제: 페이지 교체 - LRU 알고리즘
+function solution(frame, page) {
+  let runTime = 0;
+  let temp = [];
+
+  // frame이 0이면, page의 크기만큼 6 곱해주고 끝
+  if (frame === 0) {
+    runTime = page.length * 6;
+    return runTime;
+  }
+
+  for (let i of page) {
+    if (temp.includes(i)) {
+      temp.splice(temp.indexOf(i), 1);
+      temp.push(i);
+      runTime += 1;
+    } else {
+      if (temp.length < frame) {
+        temp.push(i);
+      } else {
+        temp.shift();
+        temp.push(i);
+      }
+      // if문 실행 여부와 상관없이 runTime은 6 추가
+      runTime += 6;
+    }
+  }
+  return runTime;
+}
+
+const frame = 3;
+const page = 'BCBAEBCE'.split('');
+console.log(solution(frame, page));
