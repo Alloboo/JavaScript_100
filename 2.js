@@ -1374,6 +1374,7 @@ console.log(solution(frame, page))
 
 
 // 94번 문제: 페이지 교체 - LRU 알고리즘
+/*
 function solution(frame, page) {
   let runTime = 0;
   let temp = [];
@@ -1406,3 +1407,124 @@ function solution(frame, page) {
 const frame = 3;
 const page = 'BCBAEBCE'.split('');
 console.log(solution(frame, page));
+*/
+
+
+
+// 95번 문제
+/*
+function solution(stamp, rotation) {
+
+  let p = [];
+  for (let i = 0; i < stamp.length; i++) {
+    p.push(Array(stamp.length).fill(0));
+  }
+
+  // 회전하기 전 최초 1번 찍기
+  p = sum_matrix(p, stamp);
+
+  // 회전하며 도장 찍기
+  for (let i = 0; i < rotation; i++) {
+    stamp = rotate(stamp);
+    p = sum_matrix(p, stamp);
+  }
+  return p;
+}
+
+// 도장(배열) 회전
+function rotate(stamp) {
+  N = stamp.length;
+  let rot = [];
+  for(let i = 0; i < N; i++){
+    rot.push(Array(4).fill(0));
+  }
+
+  for (let i = 0; i < N; i++) {
+    for (let j = 0; j < N; j++) {
+      rot[j][N - 1 -i] = stamp[i][j];
+    }
+  }
+  return rot;
+}
+
+// 행렬 더하기 = 도장이 찍히는 정도를 더한다?
+function sum_matrix(p, stamp) {
+  for (let i = 0; i < p.length; i++) {
+    for (let j = 0; j < p[0].length; j++) {
+      p[i][j] += stamp[i][j];
+    }
+  }
+  return p;
+}
+
+const stamp = [
+  [1,1,1,2],
+  [2,0,0,0],
+  [1,1,1,1],
+  [0,0,0,0]
+];
+const rotation = 1;
+console.log(solution(stamp, rotation))
+*/
+
+
+
+// 96번 문제
+function solution(farm) {
+  const breadth = farm[0].length;
+  const height = farm.length;
+
+  let sum = Array.from({ length: height }, () => Array(breadth).fill(0));
+
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < breadth; j++) {
+      if (farm[i][j] == 0) {
+        sum[i][j] = 1;
+      } else sum[i][j] = 0;
+    }
+  }
+
+  for (let i = 1; i < height; i++) {
+    for (let j = 1; i < breadth; j++) {
+      if (sum[i][j] == 1) {
+        let min;
+        if (sum[i-1][j] > sum[i][j-1]) {
+          min = sum[i][j-1];
+        } else {
+          min = sum[i-1][j-1];
+        }
+        sum[i][j] = min + 1;
+      }
+    }
+  }
+
+  let maxValue = 0;
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < breadth; i++) {
+      if (maxValue < sum[i][j]) {
+        maxValue = sum[i][j];
+        x = i;
+        y = j;
+      }
+    }
+  }
+
+  console.log(maxValue, 'X', y);
+  for (let i = x - (maxValue -1); i <= x + 1; i++) {
+    for (let j = y - (maxValue -1); j <= y + 1; j++) {
+      farm[i][j] = '#';
+    }
+  }
+  return farm;
+}
+
+let farm = [
+  [0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0]];
+console.log(solution(farm));
