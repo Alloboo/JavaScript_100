@@ -1470,6 +1470,7 @@ console.log(solution(stamp, rotation))
 
 
 // 96번 문제
+/*
 function solution(farm) {
   const breadth = farm[0].length;
   const height = farm.length;
@@ -1528,3 +1529,32 @@ let farm = [
   [0, 0, 1, 0, 0],
   [0, 0, 0, 1, 0]];
 console.log(solution(farm));
+*/
+
+
+
+// 97번 문제
+function solution(d,dst){
+	let sec = 0;
+  let man = new Array(d).fill(0);
+
+  while (dst.length !== 0) {
+    for (let i = 0; i < man.length; i++) {
+      if (man[i] == 0 ) {
+        man[i] += dst.shift();
+      }
+    }
+    man = man.map(x => x = x-1);
+
+    sec += 1;
+  }
+  sec += Math.max.apply(null, man);
+
+  return sec;
+}
+
+const deliver = 3;
+const distance = [1,2,1,3,3,3];
+
+
+console.log(solution(deliver, distance));
