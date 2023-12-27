@@ -1534,6 +1534,7 @@ console.log(solution(farm));
 
 
 // 97번 문제
+/*
 function solution(d,dst){
 	let sec = 0;
   let man = new Array(d).fill(0);
@@ -1558,3 +1559,43 @@ const distance = [1,2,1,3,3,3];
 
 
 console.log(solution(deliver, distance));
+*/
+
+
+
+// 98번 문제
+
+function solution(input) {
+  const arr = input.split(' ');
+
+let record = [];
+
+// 숫자 기록만 추출
+for (let i in arr) {
+  if ( i % 2 !== 0) {
+    record.push(arr[i]);
+  }
+}
+
+// 배열 정돈
+let r = [];
+for (let i = 0; i < record.length; i++) {
+  r.push(record[i].split(','));
+}
+r = [].concat(...r); // 펼치고 빈배열에 하나로 합치기
+
+// 출력값 추출
+let result = [];
+for (let i of r) {
+  if ( !(result.includes(i)) ) {
+    result.push(i);
+  }
+}
+
+return result;
+}
+
+const input = '1번: 3,1 2번: 4 3번: 2,1,3 4번: 2,1,3,4';
+console.log(solution(input));
+
+
