@@ -1564,7 +1564,7 @@ console.log(solution(deliver, distance));
 
 
 // 98번 문제
-
+/*
 function solution(input) {
   const arr = input.split(' ');
 
@@ -1597,5 +1597,33 @@ return result;
 
 const input = '1번: 3,1 2번: 4 3번: 2,1,3 4번: 2,1,3,4';
 console.log(solution(input));
+*/
+
+
+
+// 99번 문제
+function solution(r, j) {
+  let answer = [];
+  for(let i=0; i<j.length; i++){
+    answer.push('pass');
+  }
+
+  for(let i=0; i<j.length; i++) {
+    let p = 0;
+    while (p < r.length-1){
+      p += j[i];
+      r[p-1] -= 1;
+
+      if (r[p-1] < 0){
+        answer[i] = "fail";
+      }
+    }
+  }
+
+  return answer;
+}
+const rock = [1, 2, 1, 4];
+const jump = [2, 1];
+console.log(solution(rock, jump));
 
 
