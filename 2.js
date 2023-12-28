@@ -1602,6 +1602,7 @@ console.log(solution(input));
 
 
 // 99번 문제
+/*
 function solution(r, j) {
   let answer = [];
   for(let i=0; i<j.length; i++){
@@ -1625,5 +1626,39 @@ function solution(r, j) {
 const rock = [1, 2, 1, 4];
 const jump = [2, 1];
 console.log(solution(rock, jump));
+*/
 
+
+
+// 100번 문제 !!!!!!!!!!!!!!!
+function solution(p, o) {
+  let point = 0;
+  let stack = [0];
+
+  while ( o.length !== 0) {
+    let m = o.shift();
+    for (let i = 0; i < p.length; i++) {
+      if (p[i][m-1] !== 0) {
+        if (stack[stack.length-1] == p[i][m-1]) {
+          point += p[i][m-1]*2;
+          p[i][m-1] = 0;
+          stack.pop();
+        } else {
+          stack.push(p[i][m-1]);
+        }
+        p[i][m-1] = 0;
+        break;
+      } else {
+        if ( i == p.length-1 && p[i][m-1] == 0) {
+          point -= 1;
+        }
+      }
+    }
+  }
+
+  return point;
+}
+const puzzle = [[0,0,0,0],[0,1,0,3],[2,5,0,1],[2,4,4,1],[5,1,1,1]];
+const operate = [1,1,1,1,3,3,3];
+console.log(solution(puzzle, operate));
 
